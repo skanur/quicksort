@@ -1,7 +1,3 @@
----
-geometry: margin = 1in
----
-
 # CILK Exercise - Quicksort
 
 ## Getting started with exercise
@@ -9,32 +5,41 @@ geometry: margin = 1in
 1. Open a terminal and clone your repository on to your local machine using `git clone`.
 
 2. Navigate to the assignment directory and create a new folder `build` and navigate into it i.e.
-    ```
+    ```bash
     cd assignment-skanur
     mkdir build
     cd build
     ```
 
-3. Compile the code and run with LLVM Cilk compiler using
+3. Two compilers are provided - LLVM version of Cilk and Intel Cilk compiler. You can switch to LLVM version of Cilk Plus using 
+    ```bash
+    use cilkplus
     ```
-    use cilk
+
+    Intel version of Cilk tools can be accessed using
+    ```
+    use parallelstudio
+    ```
+4. To compile the code and run, navigate to `build` directory and 
+    ```bash
     cmake ..
     make
     ./qsort 1000000
     ```
-4. You can also compile the code with Intel Cilk compiler using
+
+5. You can measure system usage during the code execution using the script `measure.sh`. Execute this script by using appropriate compiler environment and navigating back to your project folder and running
+    ```bash
+    ./measure.sh
     ```
-    use cilk
-    cmake ..
-    make
-    ./qsort 1000000
-    ```
+    This will print out CPU utilization, frequency and temperature of all the cores every second as well as the average of the values once the execution is finished.
 
-2. Work on the code. Make local commits on points you think are important (for e.g. various parallelisation strategies). Push it to remote when you think necessary. 
+6. Work on the code using your favorite text editor or you can also use `kdevelop`. Make local commits on points you think are important (for e.g. various parallelisation strategies). Push it to remote when you think necessary. 
 
-4. Once completed with the assignment, create a tag **final** for your master branch
+7. Once completed with the assignment, create a tag **final** for your master branch
 
-5. Push the repository to remote using `git push --follow-tags -u origin master` before the exercise deadline of **24th November 2016 23:55:00**.
+8. Push the repository to remote using `git push --follow-tags -u origin master` before the exercise deadline of **24th November 2016 23:55:00**.
+
+9. **WARNING**: This repo will be deleted after the exercise assessment without any prior notice. If you want a copy of it, fork it **privately**.
 
 ## Exercise Description
 
@@ -83,4 +88,3 @@ Multi-core programming makes sense only if there is something to solve that requ
 ## Submission of report
 
 This exercise requires a report that will be graded out of 15 points for each subsection presented above. The report shall be named as _LastName_StudentNumber_ and submitted via **Moodle**. You can use markdown, pdf or word as document formats. In addition, once your code is ready to be presented, tag the *master* branch as **final** and push the tag to the remote on **GitHub** before the deadline **24th November 2016 23:55:00**.
-
