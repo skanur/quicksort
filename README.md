@@ -2,38 +2,42 @@
 
 ## Getting started with exercise
 
-1. Open a terminal and clone your repository on to your local machine using `git clone`.
+1. Open a terminal and clone your repository on to your local machine using `git clone`. `cd` to the new directory created. This is your project directory and every step assumes you are in this directory.
+
+2. Load the compiler and related libraries using
+    ```bash
+    use parallelstudio
+    export CC=icc CXX=icpc
+    ```
 
 2. Navigate to the assignment directory and create a new folder `build` and navigate into it i.e.
     ```bash
     cd assignment-skanur
-    mkdir build
+    mkdir -p build
     cd build
     ```
 
-3. Two compilers are provided - LLVM version of Cilk and Intel Cilk compiler. You can switch to LLVM version of Cilk Plus using 
+4. To compile the code and run, from project directory 
     ```bash
-    use cilkplus
-    ```
-
-    Intel version of Cilk tools can be accessed using
-    ```
-    use parallelstudio
-    ```
-4. To compile the code and run, navigate to `build` directory and 
-    ```bash
+    cd build
     cmake ..
     make
-    ./qsort 1000000
+    ./qsort
     ```
 
-5. You can measure system usage during the code execution using the script `measure.sh`. Execute this script by using appropriate compiler environment and navigating back to your project folder and running
+5. To clean the project, just delete `build` directory and create a new one i.e. from your project directory
+    ```bash
+    rm -rf build
+    mkdir -p build
+    ```
+
+5. You can see the utilization of the CPUs using the command `htop` or `top`. Open another terminal and run either of these commands. You can also measure system usage during the code execution using the script `measure.sh`. Execute this script by using appropriate compiler environment and navigating back to your project folder and running
     ```bash
     ./measure.sh
     ```
-    This will print out CPU utilization, frequency and temperature of all the cores every second as well as the average of the values once the execution is finished.
+    This will print out CPU utilization all the cores every second.
 
-6. Work on the code using your favorite text editor or you can also use `kdevelop`. Make local commits on points you think are important (for e.g. various parallelisation strategies). Push it to remote when you think necessary. 
+6. Work on the code using your favorite text editor. Make local commits on points you think are important (for e.g. various parallelisation strategies). Push it to remote when you think necessary. 
 
 7. Once completed with the assignment, create a tag **final** for your master branch
 
@@ -75,11 +79,13 @@ The in-place version of quicksort has an extra partition phase which must ensure
 
 ### Safely parallelize Quicksort using Cilk (5p)
 
-The starting point is a sequential implementation of the Quicksort algorithm that has been stated as _properly working_. Usually, in serial environments, testing shows this. In parallelized environments it is hard to achieve an absolute proof with testing. Notice, for example that each recursive invocation of the function receives as parameter the same array a. In a serial implementation manipulating the same data from multiple occurrences doesn't produce any harm. If done by parallel executions, such a manipulation may be very dangerous. Thus, be careful in this respect when developing a parallelization. Because testing may not show the existence of such trouble, it is good practice to provide some proof that no harm can happen.
+The starting point is a sequential implementation of the Quicksort algorithm that has been stated as _properly working_. Usually, in serial environments, testing shows this. In parallelized environments it is hard to achieve an absolute proof with testing. Notice, for example that each recursive invocation of the function receives as parameter the same array a. In a serial implementation manipulating the same data from multiple occurrences doesn't produce any harm. If done by parallel executions, such a manipulation may be very dangerous. Thus, be careful in this respect when developing a parallelization. Because testing may not show the existence of such trouble, it is good practice to provide some proof that no harm can happen. 
+
+Hint: Go through the descriptions of the standard functions used in the code (e.g. std::partition) to motivate why data race might or might not happen in practice.
 
 ### Utilization analysis (5p)
 
-Further, one design may result in only a small portion of parallelism, whereas another design achieves much more. The utilization of the available potentially parallel working processing resources (= parallelization factor) shall be as close as possible to 100% all the time. Make a parallelization analysis of your implementation. This is paper work that figures out the parallelization factor at certain phases in the execution, explains the reasons why a particular level is achieved and presuming the level is not 100% what are the reasons for missing 100%. 
+Further, one design may result in only a small portion of parallelism, whereas another design achieves much more. The utilization of the available potentially parallel working processing resources (= parallelization factor) shall be as close as possible to 100% all the time. Make a parallelization analysis of your implementation. There can be alternative ways of parallelizing the same application based on which recursion is used for spawning tasks. Try atleast two such possibilities and explain the reasons why a particular level of parallelization is achieved and presuming the level is not 100% what are the reasons for missing 100%.
 
 ### Scale-up analysis (5p)
 

@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -e
+
+use parallelstudio
+export CC=icc CXX=icpc
+rm -rf build
 pushd .
 mkdir -p build
 cd build 
@@ -7,11 +12,9 @@ cmake ..
 make
 popd
 
-sar -u ALL -m CPU,FREQ,TEMP -b -B -P ALL 1 & # Start sar on all cpu at interval 1, add other logging commands if needed
-sarpid=$!
-build/qsort # Wait until it finishes
-kill -INT $sarpid
-sleep 1 # Wait for a second to display the average information
+build/qsort & # Wait until it finishes
+pid=$!
+pidstat -I -u -p $pid 1
 
 # Additional info
 # sysstat - http://sebastien.godard.pagesperso-orange.fr/documentation.html
