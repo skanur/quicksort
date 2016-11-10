@@ -39,7 +39,7 @@
 
 6. Work on the code using your favorite text editor. Make local commits on points you think are important (for e.g. various parallelisation strategies). Push it to remote when you think necessary. 
 
-7. Once completed with the assignment, create a tag **final** for your master branch
+7. Once completed with the assignment, create a tag **final** for your master branch using `git tag -a final -m "Assignment complete"`.
 
 8. Push the repository to remote using `git push --follow-tags -u origin master` before the exercise deadline of **24th November 2016 23:55:00**.
 
