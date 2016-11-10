@@ -10,7 +10,7 @@
     export CC=icc CXX=icpc
     ```
 
-2. Navigate to the assignment directory and create a new folder `build` and navigate into it i.e.
+3. Navigate to the assignment directory and create a new folder `build` and navigate into it i.e.
     ```bash
     cd assignment-skanur
     mkdir -p build
@@ -31,19 +31,19 @@
     mkdir -p build
     ```
 
-5. You can see the utilization of the CPUs using the command `htop` or `top`. Open another terminal and run either of these commands. You can also measure system usage during the code execution using the script `measure.sh`. Execute this script by using appropriate compiler environment and navigating back to your project folder and running
+6. You can see the utilization of the CPUs using the command `htop` or `top`. Open another terminal and run either of these commands. You can also measure system usage during the code execution using the script `measure.sh`. Execute this script by using appropriate compiler environment and navigating back to your project folder and running
     ```bash
     ./measure.sh
     ```
     This will print out CPU utilization all the cores every second.
 
-6. Work on the code using your favorite text editor. Make local commits on points you think are important (for e.g. various parallelisation strategies). Push it to remote when you think necessary. 
+7. Work on the code using your favorite text editor repeating steps 3-6 to clean, build and execute application. Make local commits on points you think are important (for e.g. various parallelisation strategies). Push it to remote when you think necessary. 
 
-7. Once completed with the assignment, create a tag **final** for your master branch using `git tag -a final -m "Assignment complete"`.
+8. Once completed with the assignment, create a tag **final** for your master branch using `git tag -a final -m "Assignment complete"`.
 
-8. Push the repository to remote using `git push --follow-tags -u origin master` before the exercise deadline of **24th November 2016 23:55:00**.
+9. Push the repository to remote using `git push --follow-tags -u origin master` before the exercise deadline of **24th November 2016 23:55:00**.
 
-9. **WARNING**: This repo will be deleted after the exercise assessment without any prior notice. If you want a copy of it, fork it **privately**.
+10. **WARNING**: This repo will be deleted after the exercise assessment without any prior notice. If you want a copy of it, fork it **privately**.
 
 ## Exercise Description
 
