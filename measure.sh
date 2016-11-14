@@ -2,7 +2,6 @@
 
 set -e
 
-use parallelstudio
 export CC=icc CXX=icpc
 rm -rf build
 pushd .

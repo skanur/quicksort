@@ -2,9 +2,9 @@
 
 ## Getting started with exercise
 
-1. The starting point of this exercise is the git repository you imported/created from the instructions on moodle. The repository will have the structure `quicksort-yourgithubid`. For the sake of this readme, lets call it `quicksort-skanur`.
+1. The starting point of this exercise is the git repository you imported/created from the instructions on Moodle. The repository will have the structure `quicksort-yourgithubid`. For example, my exercise repository would be `quicksort-skanur`.
 
-2. Open a terminal and clone your repository on to your local machine using `git clone`. `cd` to the new directory created. This is your project directory and every step assumes you are in this directory. 
+2. Open a terminal and clone your repository on to your local machine using `git clone`. `cd` to the new directory created. This is your project directory and every step assumes you are in this directory. I would clone my exercise repository as below. Your repository link will be different.
     ```bash
     git clone https://github.com/ESLab/quicksort-skanur.git
     cd quicksort-skanur
@@ -38,6 +38,7 @@
 
 6. You can see the utilization of the CPUs using the command `htop` or `top`. Open another terminal and run either of these commands. You can also measure system usage during the code execution using the script `measure.sh`. Execute this script by using appropriate compiler environment and navigating back to your project folder and running
     ```bash
+    use parallelstudio
     ./measure.sh
     ```
     This will print out CPU utilization all the cores every second.
