@@ -2,9 +2,15 @@
 
 ## Getting started with exercise
 
-1. Open a terminal and clone your repository on to your local machine using `git clone`. `cd` to the new directory created. This is your project directory and every step assumes you are in this directory.
+1. The starting point of this exercise is the git repository you imported/created from the instructions on moodle. The repository will have the structure `quicksort-yourgithubid`. For the sake of this readme, lets call it `quicksort-skanur`.
 
-2. Load the compiler and related libraries using
+2. Open a terminal and clone your repository on to your local machine using `git clone`. `cd` to the new directory created. This is your project directory and every step assumes you are in this directory. 
+    ```bash
+    git clone https://github.com/ESLab/quicksort-skanur.git
+    cd quicksort-skanur
+    ```
+
+2. Load the compiler and related libraries. Note that there is no spaces between `CC=icc` and `CXX=icpc`
     ```bash
     use parallelstudio
     export CC=icc CXX=icpc
@@ -12,7 +18,6 @@
 
 3. Navigate to the assignment directory and create a new folder `build` and navigate into it i.e.
     ```bash
-    cd assignment-skanur
     mkdir -p build
     cd build
     ```
